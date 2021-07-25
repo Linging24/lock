@@ -1,10 +1,6 @@
 package top.linging.dbase;
 
-import jdk.nashorn.internal.ir.Block;
 import lombok.SneakyThrows;
-import org.springframework.beans.factory.annotation.Autowired;
-import top.linging.dbase.base.DBLock;
-import top.linging.dbase.base.LockRecord;
 
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Lock;
@@ -39,6 +35,10 @@ public class Main {
         }
     }
 
+    /**
+     * 单节点下
+     * @param args
+     */
     public static void main(String[] args) {
         ReduceLock reduceLock = new ReduceLock();
         new Thread(reduceLock,"线程1").start();

@@ -3,8 +3,7 @@ package top.linging.dbase.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
-import top.linging.dbase.base.DBLock;
-import top.linging.dbase.mapper.LockRecordMapper;
+import top.linging.dbase.base.ZookeeperLock;
 
 import java.util.concurrent.TimeUnit;
 
@@ -14,18 +13,14 @@ import java.util.concurrent.TimeUnit;
  * @since 1.0
  */
 @RestController
-public class DbController {
+public class ZookeeperController {
 
-    @Autowired
-    private LockRecordMapper lockRecordMapper;
-
-    @Autowired
-    private DBLock lock;
+    private static ZookeeperLock lock = new ZookeeperLock();
 
     private int num = 1;
 
-    @GetMapping("/dbLock")
-    public String dbLock(){
+    @GetMapping("/zookeeperLock")
+    public String zookeeperLock(){
         Runnable task = new Runnable() {
             @Override
             public void run() {

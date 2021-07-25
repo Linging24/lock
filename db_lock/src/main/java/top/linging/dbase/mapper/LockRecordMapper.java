@@ -2,7 +2,7 @@ package top.linging.dbase.mapper;
 
 import org.springframework.stereotype.Repository;
 import tk.mybatis.mapper.common.Mapper;
-import top.linging.dbase.base.LockRecord;
+import top.linging.dbase.model.LockRecord;
 
 /**
  * @author Linging

@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import top.linging.dbase.base.DBLock;
+import top.linging.dbase.base.RedisLock;
 import top.linging.dbase.mapper.LockRecordMapper;
 
 import java.util.concurrent.TimeUnit;
@@ -14,17 +15,17 @@ import java.util.concurrent.TimeUnit;
  * @since 1.0
  */
 @RestController
-public class DbController {
+public class RedisController {
 
     @Autowired
     private LockRecordMapper lockRecordMapper;
 
     @Autowired
-    private DBLock lock;
+    private RedisLock lock;
 
     private int num = 1;
 
-    @GetMapping("/dbLock")
+    @GetMapping("/redisLock")
     public String dbLock(){
         Runnable task = new Runnable() {
             @Override

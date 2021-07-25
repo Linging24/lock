@@ -5,6 +5,7 @@ import org.springframework.dao.DuplicateKeyException;
 import org.springframework.stereotype.Component;
 import tk.mybatis.mapper.entity.Example;
 import top.linging.dbase.mapper.LockRecordMapper;
+import top.linging.dbase.model.LockRecord;
 
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Condition;

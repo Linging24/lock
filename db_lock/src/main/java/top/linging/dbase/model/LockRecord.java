@@ -1,4 +1,4 @@
-package top.linging.dbase.base;
+package top.linging.dbase.model;
 
 import lombok.Data;
 
